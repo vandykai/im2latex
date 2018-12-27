@@ -4,6 +4,5 @@ scipy
 nltk
 pillow
 distance
-multiprocessing
 six
 click
