@@ -40,7 +40,7 @@ def get_form_prepro(vocab, id_unk):
 
     def f(formula):
         formula = formula.strip().split(' ')
-        return map(lambda t: get_token_id(t), formula)
+        return list(map(lambda t: get_token_id(t), formula))
 
     return f
 
@@ -130,7 +130,7 @@ def pad_batch_formulas(formulas, id_pad, id_end, max_len=None):
 
     """
     if max_len is None:
-        max_len = max(map(lambda x: len(x), formulas))
+        max_len = max(list(map(lambda x: len(x), formulas)))
 
     batch_formulas = id_pad * np.ones([len(formulas), max_len+1],
             dtype=np.int32)
